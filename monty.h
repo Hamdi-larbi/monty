@@ -38,6 +38,7 @@ typedef struct instruction_s
 
 extern stack_t *top;
 
-void push(int n);
+void push(stack_t **head, unsigned int line_number);
+void pall(stack_t **head, unsigned int line_number);
 
 #endif
