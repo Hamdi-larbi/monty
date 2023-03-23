@@ -17,7 +17,7 @@ void push(stack_t **head, unsigned int line_number)
 
 	if (bus.arg == NULL)
 	{
-		perror("L%d: usage: push integer\n", line_number);
+		printf("L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	else
@@ -28,7 +28,7 @@ void push(stack_t **head, unsigned int line_number)
 		{
 			if (bus.arg[j] > 57 || bus.arg[j] < 48)
 			{
-				perror("L%d: usage: push integer\n", line_number);
+				printf("L%d: usage: push integer\n", line_number);
 				exit(EXIT_FAILURE);
 			}
 		}
@@ -38,10 +38,10 @@ void push(stack_t **head, unsigned int line_number)
 	newNode = malloc(sizeof(stack_t));
 	if (newNode == NULL)
 	{
-		perror("Stack overflow\n");
+		printf("Stack overflow\n");
 		exit(1);
 	}
-	newNode->n = n;
+	newNode->n = atoi(bus.arg);
 	newNode->prev = NULL;
 	newNode->next = NULL;
 	newNode->next = *head;

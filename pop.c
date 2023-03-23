@@ -20,7 +20,7 @@ void pop(stack_t** head, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	*head = temp->next;
-	*head->prev = NULL;
+	(*head)->prev = NULL;
 	temp->next = NULL;
 	free(temp);
 	temp = NULL;

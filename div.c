@@ -10,7 +10,7 @@
  *
  */
 
-void div(stack_t** head, unsigned int line_number)
+void f_div(stack_t** head, unsigned int line_number)
 {
 	stack_t* temp = *head;
 	int j, i = 0;
@@ -32,8 +32,8 @@ void div(stack_t** head, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	*head = temp->next;
-	*head->n = *head->n / temp->n;
-	*head->prev = NULL;
+	(*head)->n = (*head)->n / temp->n;
+	(*head)->prev = NULL;
 	temp->next = NULL;
 	free(temp);
 	temp = NULL;

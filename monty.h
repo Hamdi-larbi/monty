@@ -2,6 +2,8 @@
 #define MONTY_H
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -60,7 +62,8 @@ void add(stack_t** head, unsigned int line_number);
 void swap(stack_t** head, unsigned int line_number);
 void sub(stack_t** head, unsigned int line_number);
 void mul(stack_t** head, unsigned int line_number);
-void div(stack_t** head, unsigned int line_number);
-
+void f_div(stack_t** head, unsigned int line_number);
+void free_stack(stack_t *head);
+int execute(char *content, stack_t **stack, unsigned int counter, FILE *file);
 
 #endif
