@@ -5,7 +5,7 @@
 
 /**
  * push - push a new data to the stack/ queue
- * n : the data to be pushed to the stack
+ * @n: the data to be pushed to the stack
  */
 
 void push(int n)
