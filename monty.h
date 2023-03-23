@@ -14,9 +14,9 @@
  */
 typedef struct stack_s
 {
-        int n;
-        struct stack_s *prev;
-        struct stack_s *next;
+    int n;
+    struct stack_s* prev;
+    struct stack_s* next;
 } stack_t;
 
 
@@ -30,15 +30,37 @@ typedef struct stack_s
  */
 typedef struct instruction_s
 {
-        char *opcode;
-        void (*f)(stack_t **stack, unsigned int line_number);
+    char* opcode;
+    void (*f)(stack_t** stack, unsigned int line_number);
 } instruction_t;
 
+/**
+ * struct bus_s - variables -args, file, line content
+ * @arg: value
+ * @file: pointer to monty file
+ * @content: line content
+ * @lifi: flag change stack <-> queue
+ * Description: carries values through the program
+ */
+typedef struct bus_s
+{
+    char* arg;
+    FILE* file;
+    char* content;
+}  bus_t;
+extern bus_t bus;
 
 
-extern stack_t *top;
+void push(stack_t** head, unsigned int line_number);
+void pall(stack_t** head, unsigned int line_number);
+void pop(stack_t** head, unsigned int line_number);
+void pint(stack_t** head, unsigned int line_number);
+void nop(stack_t** head, unsigned int line_number);
+void add(stack_t** head, unsigned int line_number);
+void swap(stack_t** head, unsigned int line_number);
+void sub(stack_t** head, unsigned int line_number);
+void mul(stack_t** head, unsigned int line_number);
+void div(stack_t** head, unsigned int line_number);
 
-void push(stack_t **head, unsigned int line_number);
-void pall(stack_t **head, unsigned int line_number);
 
 #endif

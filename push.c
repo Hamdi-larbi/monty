@@ -5,7 +5,9 @@
 
 /**
  * push - push a new data to the stack/ queue
- * @n: the data to be pushed to the stack
+ * @head: stack head
+ * @line_number: line_number
+ * Return: no return
  */
 
 void push(stack_t **head, unsigned int line_number)
