@@ -8,9 +8,30 @@
  * @n: the data to be pushed to the stack
  */
 
-void push(int n)
+void push(stack_t **head, unsigned int line_number)
 {
 	stack_t *newNode;
+	int j = 0;
+
+	if (bus.arg == NULL)
+	{
+		perror("L%d: usage: push integer\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	else
+	{
+		if (bus.arg[0] == '-')
+			j++;
+		for (; bus.arg[j] != '\0'; j++)
+		{
+			if (bus.arg[j] > 57 || bus.arg[j] < 48)
+			{
+				perror("L%d: usage: push integer\n", line_number);
+				exit(EXIT_FAILURE);
+			}
+		}
+	}
+
 
 	newNode = malloc(sizeof(stack_t));
 	if (newNode == NULL)
@@ -21,8 +42,6 @@ void push(int n)
 	newNode->n = n;
 	newNode->prev = NULL;
 	newNode->next = NULL;
-	top->prev = newNode;
-	newNode->next = top;
-	top = newNode;
-
+	newNode->next = *head;
+	*head = newNode;
 }
