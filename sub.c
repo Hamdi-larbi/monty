@@ -13,7 +13,7 @@
 void sub(stack_t **head, unsigned int line_number)
 {
 	stack_t *temp = *head;
-	int j, i = 0;
+	int i = 0;
 
 	while (temp != NULL)
 	{
