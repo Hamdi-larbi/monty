@@ -14,32 +14,39 @@ void push(stack_t **head, unsigned int line_number)
 {
 	stack_t *newNode;
 	int j = 0;
+	int flag = 0;
 
-	if (bus.arg == NULL)
-	{
-		printf("L%d: usage: push integer\n", line_number);
-		exit(EXIT_FAILURE);
-	}
-	else
+	if (bus.arg)
 	{
 		if (bus.arg[0] == '-')
 			j++;
 		for (; bus.arg[j] != '\0'; j++)
 		{
 			if (bus.arg[j] > 57 || bus.arg[j] < 48)
-			{
-				printf("L%d: usage: push integer\n", line_number);
-				exit(EXIT_FAILURE);
-			}
+				flag = 1;
+		}
+		if (flag == 1)
+		{
+			fprintf(stderr, "L%d: usage: push integer\n", line_number);
+			fclose(bus.file);
+			free(bus.content);
+			free_stack(*head);
+			exit(EXIT_FAILURE);
 		}
 	}
-
-
+	else
+	{
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
+		fclose(bus.file);
+		free(bus.content);
+		free_stack(*head);
+		exit(EXIT_FAILURE);
+	}
 	newNode = malloc(sizeof(stack_t));
 	if (newNode == NULL)
 	{
-		printf("Stack overflow\n");
-		exit(1);
+		printf("Error: malloc failed\n");
+		exit(EXIT_FAILURE);
 	}
 	newNode->n = atoi(bus.arg);
 	newNode->prev = NULL;

@@ -10,9 +10,9 @@
  *
  */
 
-void add(stack_t** head, unsigned int line_number)
+void add(stack_t **head, unsigned int line_number)
 {
-	stack_t* temp = *head;
+	stack_t *temp = *head;
 	int j, i = 0;
 
 	while (temp != NULL)
@@ -23,6 +23,9 @@ void add(stack_t** head, unsigned int line_number)
 	if (i < 2)
 	{
 		printf("L%d: can't add, stack too short\n", line_number);
+		fclose(bus.file);
+		free(bus.content);
+		free_stack(*head);
 		exit(EXIT_FAILURE);
 	}
 	temp = *head;

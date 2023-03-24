@@ -9,14 +9,14 @@ bus_t bus = {NULL, NULL, NULL};
 * @argv: monty file location
 * Return: 0 on success
 */
-int main(int argc, char* argv[])
+int main(int argc, char *argv[])
 {
-	FILE* file;
+	FILE *file;
 	ssize_t read_line = 1;
-	char* instruction;
+	char *instruction;
 	size_t size = 0;
 	unsigned int lineCounter = 0;
-	stack_t* stack = NULL;
+	stack_t *stack = NULL;
 
 	if (argc != 2)
 	{
@@ -28,7 +28,7 @@ int main(int argc, char* argv[])
 	if (file == NULL)
 	{
 		printf("Error: Can't open file %s\n", argv[1]);
-                exit(EXIT_FAILURE);
+		exit(EXIT_FAILURE);
 	}
 	while (read_line > 0)
 	{

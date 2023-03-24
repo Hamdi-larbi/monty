@@ -10,17 +10,19 @@
  *
  */
 
-void pop(stack_t** head, unsigned int line_number)
+void pop(stack_t **head, unsigned int line_number)
 {
-	stack_t* temp = *head;
+	stack_t *temp = *head;
 
 	if (temp == NULL)
 	{
 		printf("L%d: can't pop an empty stack\n", line_number);
+		fclose(bus.file);
+		free(bus.content);
+		free_stack(*head);
 		exit(EXIT_FAILURE);
 	}
 	*head = temp->next;
-	(*head)->prev = NULL;
 	temp->next = NULL;
 	free(temp);
 	temp = NULL;

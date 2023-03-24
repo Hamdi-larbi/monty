@@ -9,15 +9,14 @@
  * Return: no return
  *
  */
-
-void pall(stack_t** head, unsigned int line_number)
+void pall(stack_t **head, unsigned int line_number)
 {
 	stack_t *temp = *head;
 	(void) line_number;
 
 	if (temp == NULL)
 		exit(0);
-	while(temp)
+	while (temp)
 	{
 		printf("%d\n", temp->n);
 		temp = temp->next;
