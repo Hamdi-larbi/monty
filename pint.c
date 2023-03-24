@@ -11,9 +11,8 @@
 
 void pint(stack_t **head, unsigned int line_number)
 {
-	stack_t *temp = *head;
 
-	if (temp == NULL)
+	if (*head == NULL)
 	{
 		printf("L%d: can't pint, stack empty\n", line_number);
 		fclose(bus.file);
@@ -21,5 +20,5 @@ void pint(stack_t **head, unsigned int line_number)
 		free_stack(*head);
 		exit(EXIT_FAILURE);
 	}
-	printf("%d\n", temp->n);
+	printf("%d\n", (*head)->n);
 }
