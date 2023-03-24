@@ -22,7 +22,7 @@ void f_div(stack_t **head, unsigned int line_number)
 	}
 	if (i < 2)
 	{
-		printf("L%d: can't div, stack too short\n", line_number);
+		fprintf(stderr, "L%d: can't div, stack too short\n", line_number);
 		fclose(bus.file);
 		free(bus.content);
 		free_stack(*head);
@@ -31,7 +31,7 @@ void f_div(stack_t **head, unsigned int line_number)
 	temp = *head;
 	if (temp->n == 0)
 	{
-		printf("L%d: division by zero\n", line_number);
+		fprintf(stderr, "L%d: division by zero\n", line_number);
 		fclose(bus.file);
 		free(bus.content);
 		free_stack(*head);
