@@ -7,7 +7,6 @@
  */
 void push(stack_t **head, unsigned int line_number)
 {
-	stack_t *newNode;
 	int j = 0;
 
 	if (bus.arg)
