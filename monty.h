@@ -66,5 +66,5 @@ void mul(stack_t **head, unsigned int line_number);
 void f_div(stack_t **head, unsigned int line_number);
 void free_stack(stack_t *head);
 int execute(char *content, stack_t **stack, unsigned int counter, FILE *file);
-
+void addnode(stack_t **head, int n);
 #endif
