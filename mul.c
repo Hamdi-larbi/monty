@@ -13,9 +13,9 @@
 void mul(stack_t **head, unsigned int line_number)
 {
 	stack_t *temp = *head;
-	int i = 0;
+	int m, i = 0;
 
-	while (temp != NULL)
+	while (temp)
 	{
 		temp = temp->next;
 		i++;
@@ -30,7 +30,8 @@ void mul(stack_t **head, unsigned int line_number)
 	}
 	temp = *head;
 	*head = temp->next;
-	(*head)->n = temp->n * (*head)->n;
+	m = temp->n * (*head)->n;
+	(*head)->n = m;
 	(*head)->prev = NULL;
 	temp->next = NULL;
 	free(temp);
