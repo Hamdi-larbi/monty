@@ -67,4 +67,9 @@ void f_div(stack_t **head, unsigned int line_number);
 void free_stack(stack_t *head);
 int execute(char *content, stack_t **stack, unsigned int counter, FILE *file);
 void addnode(stack_t **head, int n);
+void f_mod(stack_t **head, unsigned int counter);
+void f_pchar(stack_t **head, unsigned int counter);
+void f_pstr(stack_t **head, unsigned int counter);
+void f_rotl(stack_t **head, unsigned int counter);
+void f_rotr(stack_t **head, __attribute__((unused)) unsigned int counter);
 #endif
