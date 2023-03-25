@@ -13,7 +13,7 @@ bus_t bus = {NULL, NULL, NULL};
 int main(int argc, char *argv[])
 {
 	FILE *file;
-	size_t read_line = 1;
+	ssize_t read_line = 1;
 	char *instruction;
 	size_t size = 0;
 	unsigned int lineCounter = 0;
@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
-	while (read_line > 0)
+	while (read_line != -1)
 	{
 		instruction = NULL;
 		read_line = getline(&instruction, &size, file);
