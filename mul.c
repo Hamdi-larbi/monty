@@ -13,16 +13,16 @@
 void mul(stack_t **head, unsigned int line_number)
 {
 	stack_t *temp = *head;
-	int m, i = 0;
+	int i = 0;
 
-	while (temp)
+	while (temp != NULL)
 	{
 		temp = temp->next;
 		i++;
 	}
 	if (i < 2)
 	{
-		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
+		fprintf(stderr, "L%d: can't mul, stack too short\n", line_number);
 		fclose(bus.file);
 		free(bus.content);
 		free_stack(*head);
@@ -30,8 +30,7 @@ void mul(stack_t **head, unsigned int line_number)
 	}
 	temp = *head;
 	*head = temp->next;
-	m = temp->n * (*head)->n;
-	(*head)->n = m;
+	(*head)->n = temp->n * (*head)->n;
 	(*head)->prev = NULL;
 	temp->next = NULL;
 	free(temp);
