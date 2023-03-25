@@ -17,8 +17,8 @@ void mul(stack_t **head, unsigned int line_number)
 
 	while (temp != NULL)
 	{
-		i++;
 		temp = temp->next;
+		i++;
 	}
 	if (i < 2)
 	{
